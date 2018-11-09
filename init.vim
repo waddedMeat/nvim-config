@@ -102,3 +102,4 @@ set completeopt=menu
 " powerline font for gvim name:size (I had to use the GUI to find the name)
 set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline:h14
 
+set clipboard=unnamed
