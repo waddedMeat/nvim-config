@@ -1,3 +1,5 @@
+let g:ale_completion_enable = 1
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -108,16 +110,8 @@ set completeopt=menu
 " powerline font for gvim name:size (I had to use the GUI to find the name)
 set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline:h14
 
+set noswapfile
 set clipboard=unnamed
-
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
