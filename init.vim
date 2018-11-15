@@ -44,11 +44,16 @@ Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'enricobacis/vim-airline-clock'
 "Plugin 'csv.vim'
 
+" Note: ultisnips requires python: pip install neovim
 " Track the engine.
 Plugin 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
+
+" Note: YouCompleteMe install script requires cmake (brew install cmake)
+" Note: YouCompleteMe install script: ./install.py --clang-completer
+Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -85,17 +90,6 @@ set splitright
 " change the <Leader> key becuase I was not a fan of '\'
 let mapleader = ","
 
-noremap <C-h> :bp!<CR>
-noremap <C-l> :bn!<CR>
-noremap <Leader>w :bd!<CR>
-
-"set tags=tags;
-" Make my backspace key work
-"set backspace=indent,eol,start
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts=1
-
 
 " Ctrl-Space for completions. Heck Yeah!
 inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
@@ -106,6 +100,20 @@ inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
 imap <C-@> <C-Space>
 " and make it NOT open up a buffer
 set completeopt=menu
+
+noremap <C-h> :bp!<CR>
+noremap <C-l> :bn!<CR>
+noremap <Leader>w :bd!<CR>
+
+map <F1> <Esc>
+imap <F1> <Esc>
+
+
+let g:python_host_prog = "/usr/local/bin/python2"
+let g:python3_host_prog = "/usr/local/bin/python3"
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts=1
 
 " powerline font for gvim name:size (I had to use the GUI to find the name)
 set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline:h14
@@ -122,3 +130,8 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsUsePythonVersion = 3
 
+let g:ycm_key_list_select_completion=["<Down>"]
+let g:ycm_key_list_previous_completion=["<Up>"]
+
+let g:ycm_server_use_vim_stdout = 1
+let g:ycm_server_log_level = 'debug'
