@@ -118,7 +118,6 @@ let g:airline_powerline_fonts=1
 " powerline font for gvim name:size (I had to use the GUI to find the name)
 set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline:h14
 
-set noswapfile
 set clipboard=unnamed
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -133,5 +132,11 @@ let g:UltiSnipsUsePythonVersion = 3
 let g:ycm_key_list_select_completion=["<Down>"]
 let g:ycm_key_list_previous_completion=["<Up>"]
 
-let g:ycm_server_use_vim_stdout = 1
-let g:ycm_server_log_level = 'debug'
+"let g:ycm_server_use_vim_stdout = 1
+"let g:ycm_server_log_level = 'debug'
+
+"let g:ycm_server_python_interpreter = '/usr/local/bin/python2'
+
+
+
+highlight SignColumn ctermbg=8
