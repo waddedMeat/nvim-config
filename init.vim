@@ -19,7 +19,10 @@ Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
+"
+" Note: Requires you to compile the ruby extension
+Plugin 'git://git.wincent.com/command-t.git'
+"
 " git repos on your local machine (i.e. when working on your own plugin)
 "Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
@@ -30,7 +33,7 @@ Plugin 'tpope/vim-fugitive'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
 
-Plugin 'ctrlpvim/ctrlp.vim'
+"Plugin 'ctrlpvim/ctrlp.vim'
 "Plugin 'vim-syntastic/syntastic'
 Plugin 'w0rp/ale'
 Plugin 'fatih/vim-go'
@@ -112,6 +115,9 @@ imap <F1> <Esc>
 let g:python_host_prog = "/usr/local/bin/python2"
 let g:python3_host_prog = "/usr/local/bin/python3"
 
+" Note: after runing gem install neovim, you gotta find this thing...
+let g:ruby_host_prog = "/usr/local/lib/ruby/gems/2.5.0/bin/neovim-ruby-host"
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
 
@@ -127,7 +133,7 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsUsePythonVersion = 3
+let g:UltiSnipsUsePythonVersion = 2
 
 let g:ycm_key_list_select_completion=["<Down>"]
 let g:ycm_key_list_previous_completion=["<Up>"]
@@ -140,3 +146,20 @@ let g:ycm_key_list_previous_completion=["<Up>"]
 
 
 highlight SignColumn ctermbg=8
+
+
+
+
+
+function LargeFile()
+ " no syntax highlighting etc
+ set eventignore+=FileType
+ " save memory when other file is viewed
+ setlocal bufhidden=unload
+ " is read-only (write with :w new_filename)
+ setlocal buftype=nowrite
+ " no undo possible
+ setlocal undolevels=-1
+ " display message
+ autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
+endfunction
