@@ -45,6 +45,7 @@ Plugin 'othree/eregex.vim'
 Plugin 'vim-perl/vim-perl'
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 Plugin 'enricobacis/vim-airline-clock'
+Plugin 'VimDebug'
 "Plugin 'csv.vim'
 
 " Note: ultisnips requires python: pip install neovim
@@ -75,7 +76,7 @@ filetype plugin indent on    " required
 
 syntax on
 
-colorscheme skittles_berry
+colorscheme Tomorrow-night
 
 set number
 "set background=dark
@@ -106,7 +107,7 @@ set completeopt=menu
 
 noremap <C-h> :bp!<CR>
 noremap <C-l> :bn!<CR>
-noremap <Leader>w :bd!<CR>
+noremap <Leader>w :bd<CR>
 
 map <F1> <Esc>
 imap <F1> <Esc>
@@ -123,6 +124,16 @@ let g:airline_powerline_fonts=1
 
 " powerline font for gvim name:size (I had to use the GUI to find the name)
 set guifont=Meslo\ LG\ M\ DZ\ for\ Powerline:h14
+
+set noswapfile
+
+set hidden
+" Persistent undo
+set undofile
+" Note: you MUST create this directory
+set undodir=$HOME/.local/share/nvim/undo
+set undolevels=1000
+set undoreload=10000
 
 set clipboard=unnamed
 

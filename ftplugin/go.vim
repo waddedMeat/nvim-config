@@ -31,3 +31,7 @@ endfunction
 function! Multiple_cursors_after()
     let b:deoplete_disable_auto_complete = 0
 endfunction
+
+
+
+nmap <leader>cw <Plug>(go-rename)
